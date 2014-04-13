@@ -128,10 +128,5 @@ public class FileSudokuBoardDaoImpl implements Dao<SudokuBoard> {
 
         return sudokuBoardInstance;
     }
-    /* public static void main(String[] args) throws IOException {
-     //read("sudokuToRead");
-     SudokuBoard sudokuBoard = new SudokuBoard();
-     writeA(sudokuBoard);
-     }*/
 
 }

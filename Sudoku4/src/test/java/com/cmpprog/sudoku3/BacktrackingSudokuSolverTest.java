@@ -37,11 +37,9 @@ public class BacktrackingSudokuSolverTest {
             Set<Integer> set = new TreeSet<Integer>(list);
             if (set.size() == list.size()) {
                 cont++;
-                System.out.println("Checking...");
             }
             if (cont == 9) {
                 res = true;
-                System.out.println("Checked!");
             }
         }
         assertTrue(res);

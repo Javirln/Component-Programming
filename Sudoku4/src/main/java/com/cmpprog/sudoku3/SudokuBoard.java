@@ -149,10 +149,10 @@ public class SudokuBoard implements Serializable {
             for (int j = 0; j <= 9; j++) {
                 if (j < 9) {
                     System.out.print(res.concat(" " + getList(i).get(j).toString()));
-                    //res = res.concat(" " + getList(i).get(j).toString());
+                    res = res.concat(" " + getList(i).get(j).toString());
                 } else {
                     System.out.print(res.concat("\n"));
-                    //res = res.concat("\n");
+                    res = res.concat("\n");
                 }
             }
         }

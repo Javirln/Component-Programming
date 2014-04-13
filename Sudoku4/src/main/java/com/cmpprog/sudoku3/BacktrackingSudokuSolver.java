@@ -34,7 +34,12 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
         this.board = sudokuBoard.getMapBoard();
         System.out.println("Initialization");
         System.out.println(sudokuBoard.toString());
+        initializeUiField();
         run();
+    }
+    
+    private void initializeUiField(){
+        
     }
 
     private void run() {
