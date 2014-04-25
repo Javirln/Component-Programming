@@ -32,9 +32,9 @@ public class BacktrackingSudokuSolverTest {
         instance.solve(sudokuBoard);
         boolean res = false;
         int cont = 0;
-        Collection<List<Integer>> results = sudokuBoard.getMapBoard().values();
-        for (List<Integer> list : results) {
-            Set<Integer> set = new TreeSet<Integer>(list);
+        Collection<List<SudokuField>> results = sudokuBoard.getMapBoard().values();
+        for (List<SudokuField> list : results) {
+            Set<SudokuField> set = new TreeSet<SudokuField>(list);
             if (set.size() == list.size()) {
                 cont++;
             }

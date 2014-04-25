@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * @author Javi Rodriguez <javi.role1@gmail.com>
  *
  */
-public class SudokuRow implements Cloneable, Serializable {
+public class SudokuRow implements Cloneable, Comparable, Serializable {
 
     private int row;
     private List<Integer> elementsInRow = new ArrayList<Integer>();
@@ -26,9 +26,8 @@ public class SudokuRow implements Cloneable, Serializable {
      this.rowsValues = rowsValues;
      }*/
     /*public SudokuRow(Map<Integer, List<Integer>> map) {
-    this.map = map;
-    }*/
-
+     this.map = map;
+     }*/
     public int getRow() {
         return this.row;
     }
@@ -46,5 +45,19 @@ public class SudokuRow implements Cloneable, Serializable {
             Collections.addAll(rowsValues, list);
         }
         return rowsValues;
+    }
+
+    @Override
+    public SudokuRow clone() throws CloneNotSupportedException {
+        SudokuRow res = null;
+        try {
+            res = (SudokuRow) super.clone();
+        } catch (CloneNotSupportedException e) {
+        }
+        return res;
+    }
+
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

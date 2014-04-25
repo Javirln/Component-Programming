@@ -5,11 +5,7 @@
  */
 package com.cmpprog.sudoku3;
 
-import com.cmpprog.sudoku3.BacktrackingSudokuSolver;
-import com.cmpprog.sudoku3.Dao;
-import com.cmpprog.sudoku3.DaoFactory;
-import com.cmpprog.sudoku3.SudokuBoard;
-import com.cmpprog.sudoku3.SudokuRow;
+import java.util.List;
 
 /**
  *
@@ -664,7 +660,9 @@ public class FirstView extends javax.swing.JFrame {
     private void initalizeUiFields(){
         BacktrackingSudokuSolver sudoku = new BacktrackingSudokuSolver();
         SudokuRow row = new SudokuRow();
-        
+        int cont = 0;
+        /*for(List<SudokuField> list : row.getRowsValues(sudoku.sudokuBoard.getMapBoard())){
+        }*/
     }
     /**
      * @param args the command line arguments

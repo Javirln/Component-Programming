@@ -30,13 +30,13 @@ public class SudokuBoardTest {
     public void testGetList() {
         System.out.println("getList");
         int i = 0;
-        Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
-        List<Integer> expResult = new ArrayList<Integer>();
-        expResult.add(1);
-        expResult.add(2);
+        Map<Integer, List<SudokuField>> map = new HashMap<Integer, List<SudokuField>>();
+        List<SudokuField> expResult = new ArrayList<SudokuField>();
+        expResult.add(new SudokuField(1));
+        expResult.add(new SudokuField(2));
         map.put(i, expResult);
         SudokuBoard instance = new SudokuBoard(map);
-        List<Integer> result = instance.getList(i);
+        List<SudokuField> result = instance.getList(i);
         assertEquals(expResult, result);
     }
 

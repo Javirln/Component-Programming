@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Javi Rodriguez <javi.role1@gmail.com>
  *
  */
-public class SudokuColumn implements Cloneable, Serializable {
+public class SudokuColumn implements Cloneable, Comparable, Serializable {
 
     private int column;
     private List<Integer> elementsInColumn = new ArrayList<Integer>();
@@ -29,5 +29,19 @@ public class SudokuColumn implements Cloneable, Serializable {
             elementsInColumn.add(aux2.get(col));
         }
         return elementsInColumn;
+    }
+    
+    @Override
+    public SudokuColumn clone() throws CloneNotSupportedException {
+        SudokuColumn res = null;
+        try {
+            res = (SudokuColumn) super.clone();
+        } catch (CloneNotSupportedException e) {
+        }
+        return res;
+    }
+
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cmpprog.sudoku3;
 
 import java.util.ArrayList;
@@ -19,9 +14,9 @@ import java.util.Map;
 public class BacktrackingSudokuSolver implements SudokuSolver {
 
     SudokuBoard sudokuBoard;
-    Map<Integer, List<Integer>> board = new HashMap<Integer, List<Integer>>();
-    
-
+    Map<Integer, List<SudokuField>> board = new HashMap<Integer, List<SudokuField>>();
+    final Integer zero = 0;
+    boolean res;
     int currentRow = 0;
     int currentCol = 0;
 
@@ -34,19 +29,19 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
         this.board = sudokuBoard.getMapBoard();
         System.out.println("Initialization");
         System.out.println(sudokuBoard.toString());
-        initializeUiField();
+        //initializeUiField();
         run();
     }
-    
-    private void initializeUiField(){
-        
-    }
 
+    /*private void initializeUiField(){
+    
+     }*/
     private void run() {
         try {
             // Start to fillBoard the puzzle in the left upper corner
             fillBoard(0, 0);
         } catch (Exception e) {
+            // e.printStackTrace();
         }
         System.out.println(currentCol);
         System.out.println(currentRow);
@@ -68,8 +63,9 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
             file.write(sudokuBoard);
         }
 
+        res = board.get(row).get(col).getValue().equals(zero);
         // If cell is not empty, continue with next cell
-        if (board.get(row).get(col) != 0) {
+        if (!res) {
             next(row, col);
 
         } else {
@@ -81,13 +77,13 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
             for (int num = 1; num < 10; num++) {
                 int x = ints.get(num - 1);
                 if (sudokuBoard.setConditions(row, col, x)) {
-                    board.get(row).set(col, x);
+                    board.get(row).set(col, new SudokuField(x));
                     // Delegate work on the next cell to a recursive call
                     next(row, col);
                 }
             }
             // No valid number found, erase and return to caller
-            board.get(row).set(col, 0);
+            board.get(row).set(col, new SudokuField(0));
 
         }
     }
